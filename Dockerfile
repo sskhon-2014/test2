@@ -1,6 +1,6 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-FROM jupyter/minimal-notebook:03b897d05f16
+FROM jupyter/minimal-notebook
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
@@ -65,7 +65,6 @@ RUN cd /tmp && \
     rm -rf /tmp/facets && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
-
 RUN pip install nbgitpuller
 ARG JUPYTERHUB_VERSION=0.8.1
 RUN pip install --no-cache jupyterhub==$JUPYTERHUB_VERSION
